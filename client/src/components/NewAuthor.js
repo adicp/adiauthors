@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import CancelButton from './CancelButton';
+// import CancelButton from './CancelButton';
 
 
 const NewAuthor = (props) => {
@@ -11,6 +11,7 @@ const NewAuthor = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log("handleSubmit");
 
         axios.post("http://localhost:8000/new",{
             name: authorName
@@ -42,7 +43,7 @@ const NewAuthor = (props) => {
                     <input type='text' value = {authorName} onChange = {(e) => setAuthorName(e.target.value)} />
                 </div>
 
-                <CancelButton /> 
+                <button>Cancel</button>
                 <input id = "submit" type="submit"/>
                 
             </form>

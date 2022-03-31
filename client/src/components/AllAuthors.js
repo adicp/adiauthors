@@ -8,7 +8,7 @@ const AllAuthors = (props) => {
     const [authorsList, setAuthorsList] = useState([]);
 
     useEffect (() => {
-        axios.get('http://localhost:8000')
+        axios.get("http://localhost:8000")
             .then((response) => {
                 console.log(response);
                 console.log(response.data);
@@ -40,7 +40,7 @@ const AllAuthors = (props) => {
             </header>
 
                 {
-                    authorsList.length> 0 && authorsList.map((author, index) => (
+                        authorsList.map((author, index) => (
                         <div key={index}>
                             <Link to = {`/${author._id}`}>
                             <p>{author.name}</p>
