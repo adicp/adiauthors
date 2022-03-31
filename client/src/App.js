@@ -1,12 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
-import AuthorForm from './components/AuthorForm';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import AllAuthors from './components/AllAuthors';
+import NewAuthor from './components/NewAuthor';
+import EditAuthors from './components/EditAuthors';
 
 function App() {
   return (
+    <BrowserRouter>
     <div className="App">
-      <AuthorForm />
+      <Routes>
+        <Route element={<AllAuthors/>} exact path = '/' default/>
+        <Route element={<NewAuthor/>} exact path = '/new' />
+        <Route element={<EditAuthors/>} exact path = '/edit/:id' />
+      </Routes>
+
     </div>
+    </BrowserRouter>
   );
 }
 
