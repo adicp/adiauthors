@@ -29,7 +29,17 @@ module.exports.updateEachAuthor = (request, response) => {
     console.log("entered update");
     console.log(request.body);
     console.log(request.params.id);
-    Product.findOneAndUpdate({_id:request.params.id}, request.body, {new:true})
+    Author.findOneAndUpdate({_id:request.params.id}, request.body, {new:true})
     .then(updatedAuthor => response.json(updatedAuthor))
+    .catch(err => response.json(err))
+}
+module.exports.deleteEachAuthor = (request, response) => {
+    console.log("entered delete");
+    Author.deleteOne({ _id: request.params.id})
+    .then(deleteConfirmation => {
+        response.json(deleteConfirmation)
+        console.log(deleteConfirmation);
+    
+    })
     .catch(err => response.json(err))
 }
